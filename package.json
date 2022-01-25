@@ -1,32 +1,40 @@
 {
-  "name": "atvd1-loja",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:mende1/atvd1-loja.git",
-  "author": "Gustavo Mendel <gustavo.mendel.br@gmail.com>",
-  "license": "MIT",
-  "scripts": {
-    "dev": "nodemon src/server.ts",
-    "build": "sucrase ./src -d ./dist --transforms typescript,imports"
-  },
-  "devDependencies": {
-    "@types/express": "^4.17.13",
-    "@types/mysql": "^2.15.20",
-    "@typescript-eslint/eslint-plugin": "^5.10.0",
-    "@typescript-eslint/parser": "^5.10.0",
-    "eslint": "^8.7.0",
-    "eslint-config-google": "^0.14.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "nodemon": "^2.0.15",
-    "prettier": "^2.5.1",
-    "sucrase": "^3.20.3",
-    "typescript": "^4.5.5"
-  },
-  "dependencies": {
-    "express": "^4.17.2",
-    "mysql": "^2.18.1"
-  }
+   "name": "atvd1-loja",
+   "version": "1.0.0",
+   "main": "index.js",
+   "repository": "git@github.com:mende1/atvd1-loja.git",
+   "author": "Gustavo Mendel <gustavo.mendel.br@gmail.com>",
+   "license": "MIT",
+   "scripts": {
+      "dev": "nodemon src/server.ts",
+      "build": "sucrase ./src -d ./dist --transforms typescript,imports",
+      "typeorm": "ts-node-dev node_modules/typeorm/cli.js"
+   },
+   "devDependencies": {
+      "@types/express": "^4.17.13",
+      "@types/mysql": "^2.15.20",
+      "@types/node": "^8.0.29",
+      "@types/uuid": "^8.3.4",
+      "@typescript-eslint/eslint-plugin": "^5.10.0",
+      "@typescript-eslint/parser": "^5.10.0",
+      "eslint": "^8.7.0",
+      "eslint-config-google": "^0.14.0",
+      "eslint-config-prettier": "^8.3.0",
+      "eslint-plugin-import": "^2.25.4",
+      "eslint-plugin-node": "^11.1.0",
+      "eslint-plugin-prettier": "^4.0.0",
+      "nodemon": "^2.0.15",
+      "prettier": "^2.5.1",
+      "sucrase": "^3.20.3",
+      "ts-node": "3.3.0",
+      "ts-node-dev": "^1.1.8",
+      "typescript": "^4.5.5"
+   },
+   "dependencies": {
+      "express": "^4.17.2",
+      "mysql": "^2.14.1",
+      "reflect-metadata": "^0.1.10",
+      "typeorm": "0.2.41",
+      "uuid": "^8.3.2"
+   }
 }
