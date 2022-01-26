@@ -3,8 +3,8 @@ import {
   CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
-import { Customer } from './Customer';
-import { Stock } from './Stock';
+import { Customer } from './Customer.entity';
+import { Stock } from './Stock.entity';
 
 @Entity('orders')
 export class Order {

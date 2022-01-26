@@ -8,7 +8,7 @@ export class Orders1643118776516 implements MigrationInterface {
           columns: [
             {
               name: 'id',
-              type: 'uuid',
+              type: 'varchar',
               isPrimary: true,
             },
             {

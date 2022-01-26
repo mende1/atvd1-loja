@@ -8,7 +8,7 @@
    "scripts": {
       "dev": "nodemon src/server.ts",
       "build": "sucrase ./src -d ./dist --transforms typescript,imports",
-      "typeorm": "ts-node-dev node_modules/typeorm/cli.js"
+      "typeorm": "ts-node ./node_modules/.bin/typeorm"
    },
    "devDependencies": {
       "@types/express": "^4.17.13",
