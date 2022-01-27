@@ -12,6 +12,10 @@ export class Stock1643118692219 implements MigrationInterface {
               isPrimary: true,
             },
             {
+              name: 'name',
+              type: 'varchar',
+            },
+            {
               name: 'quantity',
               type: 'int',
             },

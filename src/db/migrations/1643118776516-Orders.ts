@@ -8,16 +8,16 @@ export class Orders1643118776516 implements MigrationInterface {
           columns: [
             {
               name: 'id',
-              type: 'varchar',
+              type: 'int',
               isPrimary: true,
             },
             {
               name: 'product_id',
-              type: 'int',
+              type: 'varchar',
             },
             {
               name: 'customer_id',
-              type: 'int',
+              type: 'varchar',
             },
             {
               name: 'created_at',

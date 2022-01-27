@@ -7,6 +7,9 @@ export class Stock {
     id: string;
 
   @Column()
+    name: string;
+
+  @Column()
     quantity: number;
 
   @CreateDateColumn()
