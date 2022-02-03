@@ -1,29 +1,31 @@
 import { DeleteResult, getRepository } from 'typeorm';
 import { Customer } from '../entities/Customer.entity';
 
-interface CustomerRequestIterface {
+interface CustomerRequestInterface {
   name: string,
   user: string,
-  password: string
+  hashedPassword: string
 }
 
-interface UpdateRequestIterface {
+interface UpdateRequestInterface {
   id: string,
   name: string,
   user: string,
-  password: string,
+  hashedPassword: string,
 }
 
 export class CustomersServices {
   // CREATE CUSTOMER
   async create(
-      {name, user, password}: CustomerRequestIterface,
+      {name, user, hashedPassword}: CustomerRequestInterface,
   ): Promise<Customer | Error> {
     const repo = getRepository(Customer);
 
     if (await repo.findOne({user})) {
       return new Error('User already exists.');
     }
+
+    const password = hashedPassword;
 
     const customer = repo.create({
       name,
@@ -38,7 +40,7 @@ export class CustomersServices {
 
   // UPDATE BY ID
   async update(
-      {id, name, user, password}: UpdateRequestIterface,
+      {id, name, user, hashedPassword}: UpdateRequestInterface,
   ): Promise<Customer | Error> {
     const repo = getRepository(Customer);
 
@@ -50,7 +52,7 @@ export class CustomersServices {
 
     customer.name = name ? name : customer.name;
     customer.user = user ? user : customer.user;
-    customer.password = password ? password : customer.password;
+    customer.password = hashedPassword ? hashedPassword : customer.password;
 
     repo.save(customer);
   }

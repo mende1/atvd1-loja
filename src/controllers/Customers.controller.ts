@@ -1,13 +1,17 @@
 import { Request, Response } from 'express';
 import { CustomersServices } from '../services/Customers.service';
 
+import bcrypt from 'bcrypt';
+
 export class CustomersControllers {
   // CREATE CUSTOMER
   async create(req: Request, res: Response): Promise<Response> {
     const service = new CustomersServices();
     const {name, user, password} = req.body;
 
-    const result = await service.create({name, user, password});
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const result = await service.create({name, user, hashedPassword});
 
     if (result instanceof Error) {
       return res.status(400).json(result.message);
@@ -22,7 +26,9 @@ export class CustomersControllers {
     const { id } = req.params;
     const { name, user, password } = req.body;
 
-    const result = await service.update({id, name, user, password});
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const result = await service.update({id, name, user, hashedPassword});
 
     if (result instanceof Error) {
       return res.status(400).json(result.message);
