@@ -12,18 +12,21 @@ export class Order {
     id: string;
 
   @Column()
-    product_id: string;
+    productId: string;
 
   @ManyToOne(() => Stock)
-  @JoinColumn({ name: 'product_id' })
+  @JoinColumn({ name: 'productId' })
     product: Stock;
 
   @Column()
-    customer_id: string;
+    customerId: string;
 
   @ManyToOne(() => Customer)
-  @JoinColumn({ name: 'customer_id' })
+  @JoinColumn({ name: 'customerId' })
     customer: Customer;
+
+  @Column()
+    quantity: number;
 
   @CreateDateColumn()
     created_at: Date;

@@ -25,6 +25,16 @@ export class ProductsServices {
     return product;
   }
 
+  async reduceStock(id: string, quantity: number) {
+    const repo = getRepository(Stock);
+
+    const product = await repo.findOne(id);
+
+    product.quantity = product.quantity - quantity;
+
+    repo.save(product);
+  }
+
   // READ ALL
   async read(): Promise<Stock[]> {
     const repo = getRepository(Stock);

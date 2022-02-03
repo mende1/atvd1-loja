@@ -8,16 +8,20 @@ export class Orders1643118776516 implements MigrationInterface {
           columns: [
             {
               name: 'id',
-              type: 'int',
+              type: 'varchar',
               isPrimary: true,
             },
             {
-              name: 'product_id',
+              name: 'productId',
               type: 'varchar',
             },
             {
-              name: 'customer_id',
+              name: 'customerId',
               type: 'varchar',
+            },
+            {
+              name: 'quantity',
+              type: 'int',
             },
             {
               name: 'created_at',
@@ -28,13 +32,13 @@ export class Orders1643118776516 implements MigrationInterface {
           foreignKeys: [
             {
               name: 'fk_order_customer',
-              columnNames: ['customer_id'],
+              columnNames: ['customerId'],
               referencedTableName: 'customers',
               referencedColumnNames: ['id'],
             },
             {
               name: 'fk_order_product',
-              columnNames: ['product_id'],
+              columnNames: ['productId'],
               referencedTableName: 'stock',
               referencedColumnNames: ['id'],
             },

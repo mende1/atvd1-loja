@@ -20,6 +20,7 @@ export class CustomersServices {
       {name, user, password}: CustomerRequestIterface,
   ): Promise<Customer | Error> {
     const repo = getRepository(Customer);
+
     if (await repo.findOne({user})) {
       return new Error('User already exists.');
     }
@@ -36,7 +37,6 @@ export class CustomersServices {
   }
 
   // UPDATE BY ID
-
   async update(
       {id, name, user, password}: UpdateRequestIterface,
   ): Promise<Customer | Error> {
@@ -48,9 +48,9 @@ export class CustomersServices {
       return new Error('User not found.');
     }
 
-    customer.name = name;
-    customer.user = user;
-    customer.password = password;
+    customer.name = name ? name : customer.name;
+    customer.user = user ? user : customer.user;
+    customer.password = password ? password : customer.password;
 
     repo.save(customer);
   }
